@@ -1,0 +1,4 @@
+category,n,baseline_highbeta_mean,baseline_highbeta_sd
+strong_suppressor,1,,
+moderate_suppressor,4,4.2221,0.9469
+non_responder,3,3.6416,1.3982

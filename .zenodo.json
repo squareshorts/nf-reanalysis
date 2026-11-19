@@ -1,0 +1,40 @@
+{
+  "title": "SMR neurofeedback EEG reanalysis: reproducible aggregate analyses",
+  "upload_type": "software",
+  "publication_date": "2026-11-19",
+  "version": "1.0.0",
+  "description": "Analysis code and aggregate-only results for the reanalysis of resting-state EEG changes following an occupational SMR neurofeedback protocol. Raw EEG, participant-level derived data, BrainAvatar workbooks, and participant crosswalks are excluded due to institutional and occupational confidentiality constraints.",
+  "creators": [
+    {
+      "name": "Suzana Cescon de Souza"
+    },
+    {
+      "name": "Caio de Oliveira Bastos"
+    },
+    {
+      "name": "Arthur Gonsales da Silva"
+    },
+    {
+      "name": "Sergio Ivan Viademonte"
+    },
+    {
+      "name": "Ana Carolina Quintão Siravenha"
+    },
+    {
+      "name": "Bruno Duarte Gomes"
+    },
+    {
+      "name": "Antonio Pereira Jr.",
+      "affiliation": "Universidade Federal do Pará"
+    }
+  ],
+  "keywords": [
+    "EEG",
+    "SMR neurofeedback",
+    "responder heterogeneity",
+    "resting-state EEG",
+    "PCA",
+    "occupational neuroscience"
+  ],
+  "access_right": "open"
+}

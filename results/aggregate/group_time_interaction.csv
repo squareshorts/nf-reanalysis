@@ -1,0 +1,5 @@
+feature,trained_minus_control_change,bootstrap_95ci_low,bootstrap_95ci_high,exact_allocation_p,welch_change_p,mann_whitney_p,hedges_g,rank_biserial,bh_fdr_q
+theta_power,0.4134,-3.04974,3.41339,0.82036,0.8197,0.64538,0.1103,0.15625,0.82036
+smr_power,0.21873,-1.11746,1.81428,0.75229,0.79341,1.0,0.12636,0.0,0.82036
+highbeta_power,-1.50789,-2.71953,-0.41036,0.02362,0.03267,0.03792,-1.13263,-0.625,0.09448
+pac_z,0.46512,-1.45433,2.5824,0.67925,0.67901,1.0,0.19979,0.0,0.82036

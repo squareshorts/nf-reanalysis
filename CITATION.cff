@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript and this archived release."
+title: "SMR neurofeedback EEG reanalysis"
+version: 1.0.0
+date-released: 2026-11-19
+authors:
+  - family-names: "de Souza"
+    given-names: "Suzana Cescon"
+  - family-names: "Bastos"
+    given-names: "Caio de Oliveira"
+  - family-names: "da Silva"
+    given-names: "Arthur Gonsales"
+  - family-names: "Viademonte"
+    given-names: "Sergio Ivan"
+  - family-names: "Siravenha"
+    given-names: "Ana Carolina Quintão"
+  - family-names: "Gomes"
+    given-names: "Bruno Duarte"
+  - family-names: "Pereira Jr"
+    given-names: "Antonio"

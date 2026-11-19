@@ -1,0 +1,37 @@
+# Restricted study inputs and identifiers
+data/raw/
+data/private/
+subject_level_eeg.csv
+analysis_table.csv
+scores/
+*.edf
+*.bdf
+*.mat
+*.xlsx
+*.xls
+*LOCAL_ONLY*
+*crosswalk*
+*subject_id_inventory*
+protocol_evidence_hits*
+
+# Local analysis outputs and individual-level figures
+results/local_run/
+revision_ynirp_*/
+revision_aggregate_report.txt
+figures_local_only/
+figures/private/
+fig_pca_responder_profiles_revision.png
+fig_S1_delta_highbeta.png
+
+# Python environments and build artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
