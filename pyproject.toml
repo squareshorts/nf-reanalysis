@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nf-reanalysis"
-version = "1.0.0"
+version = "2.0.0"
 description = "Reproducible aggregate analysis for an occupational SMR neurofeedback resting-state EEG study"
 readme = "README.md"
 requires-python = ">=3.10"

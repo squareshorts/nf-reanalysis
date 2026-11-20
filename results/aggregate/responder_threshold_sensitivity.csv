@@ -1,9 +1,0 @@
-strong_cutoff_z,moderate_cutoff_z,n_reclassified_vs_primary,n_unchanged_vs_primary,percent_unchanged,n_strong,n_moderate,n_non_responder,n_highbeta_increaser
--2.5,-1.5,2,6,75.0,1,2,5,0
--2.5,-1.0,0,8,100.0,1,4,3,0
--2.5,-0.5,1,7,87.5,1,5,2,0
--2.0,-1.5,2,6,75.0,1,2,5,0
--2.0,-1.0,0,8,100.0,1,4,3,0
--2.0,-0.5,1,7,87.5,1,5,2,0
--1.5,-1.0,2,6,75.0,3,2,3,0
--1.5,-0.5,3,5,62.5,3,3,2,0

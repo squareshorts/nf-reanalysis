@@ -1,5 +1,7 @@
-# Aggregate results
+# Aggregate results (300 Hz)
 
-These CSV files contain aggregate-only statistics from the completed local revision analysis. They do not contain participant identifiers, individual observations, PCA coordinates, or row-level derived EEG data. Values are rounded to the precision shown in the manuscript and supplementary material.
+`aggregate_300hz_public.json` contains the aggregate results of the corrected 300-Hz analysis. No individual-level observations are distributed.
 
-The exact input derived-table SHA256 used for the archived analysis is recorded in `docs/reproducibility.md`; the underlying table is not distributed.
+The original EEG segments and participant-level feature table are held under institutional confidentiality constraints.
+
+Results include exact two-sided group-label permutation tests, BH-adjusted q-values across four features, responder sensitivity, four-feature PCA, participant-deletion estimates, frequency-normalized high-beta tests and multivariate group/dispersion tests.

@@ -1,9 +1,0 @@
-component,feature,full_sample_loading,bootstrap_2_5_percentile,bootstrap_median,bootstrap_97_5_percentile
-PC1,theta_power,0.5549,0.0939,0.5473,0.689
-PC1,smr_power,0.5833,0.1892,0.5667,0.69
-PC1,highbeta_power,0.5103,-0.1526,0.5,0.8321
-PC1,pac_z,0.3024,-0.3707,0.3455,0.7388
-PC2,theta_power,-0.1521,-0.6775,-0.1415,0.4433
-PC2,smr_power,-0.1752,-0.6313,-0.153,0.2626
-PC2,highbeta_power,-0.1986,-0.7767,-0.1643,0.5553
-PC2,pac_z,0.9522,0.4738,0.8205,0.9893

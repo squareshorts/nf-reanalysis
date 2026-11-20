@@ -1,99 +1,47 @@
-# SMR neurofeedback EEG reanalysis
+# Resting-state EEG reanalysis following SMR neurofeedback
 
-**Software release:** v1.0.0  
-**Associated manuscript:** *Responder heterogeneity and multivariate organization of resting-state EEG following SMR neurofeedback* (under revision at *NeuroImage: Reports*).
+Version **2.0.0**. Reproducibility resources for *Responder heterogeneity and multivariate organization of resting-state EEG following SMR neurofeedback* (NeuroImage: Reports, revised manuscript).
 
-This repository contains the analysis code and aggregate results for a reanalysis of resting-state EEG collected before and after an occupational sensorimotor-rhythm (SMR) neurofeedback protocol. It is a reproducibility archive for the derived-feature analyses reported in the manuscript.
+## Analysis
 
-## Scope
+The analysis uses 32 pre/post C3 recording segments (16 excavator operators, trained n=8; nonfeedback control n=8), acquired at **300 Hz**. The software recomputes spectral features by Welch integration and delta-phase--SMR-amplitude coupling using the original 200-surrogate algorithm; it then runs exact two-sided permutation tests, bootstrap confidence intervals, four-feature Benjamini--Hochberg adjustment, control-referenced responder classification, PCA bootstrap/leave-one-out tests, and Euclidean PERMANOVA and PERMDISP-style tests.
 
-The analysis consumes a locally held participant-level derived EEG table with pre/post values for theta power, SMR power, high-beta power, and delta-phase--SMR-amplitude coupling. It does **not** recompute raw EEG preprocessing, spectral feature extraction, or PAC estimation. Those operations belong to the original acquisition/processing workflow and require access to restricted source recordings.
+The primary features are theta (4--7 Hz), SMR (12--15 Hz), high-beta (20--30 Hz), and delta-phase--SMR-amplitude coupling. Relative high-beta power uses 0.5--30 Hz as denominator.
 
-The public archive contains:
+## Reproducibility files
 
-- the aggregate statistical analysis script;
-- a guarded PCA-figure generator;
-- a synthetic test fixture and automated test;
-- protocol and analysis documentation;
-- aggregate result tables and a sanitized aggregate report.
+- `scripts/recompute_full_300hz.py`: restricted-source reproducibility implementation.
+- `results/aggregate/aggregate_300hz_public.json`: results derived from the original recordings; aggregate-only.
+- `tests/`: numerical smoke tests on generated data (not empirical replication).
+- `docs/`: protocol and data-governance documentation.
 
-It does **not** contain raw EDF/MAT recordings, participant-level derived EEG rows, BrainAvatar workbooks, cognitive-test workbooks, participant crosswalks, or individual-level PCA coordinates. The PCA score plot generated from restricted data is a local output and is not included in this public archive.
+Install with `python -m pip install -r requirements.txt`. Run numerical tests using `python -m pytest`.
 
-## Study protocol represented in the analysis
+To reproduce empirical results, an authorized local copy of the source EEG segments and the original participant-level feature table is required. The analysis refuses mismatched original inputs.
 
-The documented intervention comprised eight 40-minute BrainAvatar sessions over four training days, with two sessions per day separated by approximately four hours. The visual task used a spaceship and central target with an auditory reward signal. Reinforcement required increased SMR (12--15 Hz) together with reduced theta (4--7 Hz) and high-beta (20--30 Hz), sustained for at least 500 ms. The control group received no contingent feedback; no sham or yoked feedback was provided. See [`docs/protocol_summary.md`](docs/protocol_summary.md) for source-grounded detail and the documented session-count discrepancy.
-
-## Repository layout
-
-```text
-scripts/       Reproducible analysis and local PCA figure generator
-data/          Data-access instructions; no participant data
-src/           Package version metadata
-tests/         Synthetic-data test fixture and test
-results/       Aggregate-only tables and report
-docs/          Protocol, analysis, and data-governance documentation
-environment/   Environment notes
-```
-
-## Environment
-
-Python 3.10 or later is required. Create an environment and install the pinned analysis dependencies:
+Example on a private computer with those data:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+python scripts/recompute_full_300hz.py --root "C:\path\to\authorized\nf_reanalysis" --outdir "C:\work\nf-reanalysis-300hz-revision"
 ```
 
-On macOS/Linux, activate with `source .venv/bin/activate`.
+The example paths are local only and can be replaced according to the user's authorized input location. Do not commit any private inputs or participant-level outputs.
 
-## Reproduce the aggregate analysis
+## Main reported results
 
-Obtain the derived EEG table through the corresponding author under the applicable institutional data-governance conditions. The required columns are `subject`, `group` (`trained` or `control`), and pre/post values for `theta_power`, `smr_power`, `highbeta_power`, and `pac_z`.
+Absolute high-beta power: trained-minus-control change -1.452 (exact p=0.0340, four-feature FDR q=0.1361). Removing the strongest suppressor gives -0.943 (p=0.0684). Relative high-beta change: -0.02268 (p=0.1419). Four-feature PERMANOVA p=0.4260. PCA variance: 74.129%, 14.875%, 8.875%, 2.121%.
 
-Run from the repository root, supplying the local input path and an output directory outside the tracked repository:
+The distinctions between nominal, multiplicity-adjusted and exploratory tests are essential to interpretation. The nonfeedback control does not establish the specificity of contingent reinforcement.
 
-```powershell
-python scripts/run_revision_analyses.py `
-  --input "C:\path\to\authorized\subject_level_eeg.csv" `
-  --outdir "C:\path\to\local_results\nf_revision_v1" `
-  --boots 2000 `
-  --expected-sha256 7c2d695b51a152fe1036e7a8d60bb8b541301a2700c1a04a97adab49cc7664c0
-```
+## Availability
 
-The SHA256 check confirms that the input is the exact derived table used for the reported revision results. If an authorized, intentionally updated input is used, omit `--expected-sha256` and document the changed input provenance. The script writes aggregate CSVs, an aggregate text report, and a local-only PCA score plot. The output directory should not be committed.
-
-Run the synthetic-data test without access to study data:
-
-```powershell
-python -m pytest
-```
-
-The test uses artificial records and does not reproduce manuscript results.
-
-## Principal aggregate results
-
-- Trained-minus-control high-beta change: -1.508 (95% participant-bootstrap CI -2.720 to -0.410); exact allocation p = 0.0236; Hedges' g = -1.133; four-feature Benjamini--Hochberg q = 0.0945.
-- Exact four-feature Euclidean PERMANOVA: pseudo-F = 1.1858, R2 = 0.0781, p = 0.3173.
-- Exact centroid-dispersion test: F = 0.0472, p = 0.8416.
-- Four-feature within-trained-group PCA variance: PC1 69.983%, PC2 20.496%, PC3 9.169%, PC4 0.351%.
-- Primary high-beta categories: one strong suppressor, four moderate suppressors, and three non-responders.
-
-All aggregate tables are in [`results/aggregate/`](results/aggregate/). Interpretation and limitations are documented in [`docs/analysis_notes.md`](docs/analysis_notes.md).
-
-## Online performance records
-
-Online/offline correlations are not reported. The available BrainAvatar score files did not establish a source-verified participant-level correspondence with the EEG-derived table, so no correlation estimates are included in this release.
-
-## Data access and privacy
-
-Raw EEG and participant-level derived data are subject to institutional and occupational confidentiality constraints and are not distributed here. BrainAvatar and cognitive-test workbooks and any participant crosswalk are also excluded. The derived EEG table may be requested from the corresponding author, subject to institutional approval and applicable data-governance requirements. See [`docs/data_governance.md`](docs/data_governance.md).
+Original EDF/MAT recordings, individual-level EEG feature tables, BrainAvatar scoring files, cognitive assessments, source-record crosswalks and individual PCA coordinates are excluded from this repository due to institutional confidentiality restrictions. Data access may be considered through the corresponding author under institutional approval.
 
 ## Citation
 
-Please cite the associated manuscript and this software release. The version-specific Zenodo DOI will be added to this README and `CITATION.cff` after the GitHub release has been archived by Zenodo.
+Cite the version-specific Zenodo DOI for the **v2.0.0** snapshot once released. The earlier `v1.0.0` DOI `10.5281/zenodo.24378887` refers to the superseded 256-Hz implementation and should not be used to support the 300-Hz results.
 
-## Authors
+## Authorship
 
 Suzana Cescon de Souza; Caio de Oliveira Bastos; Arthur Gonsales da Silva; Sergio Ivan Viademonte; Ana Carolina Quintão Siravenha; Bruno Duarte Gomes; Antonio Pereira Jr.
 
@@ -101,4 +49,4 @@ Correspondence: apereira@ufpa.br
 
 ## License
 
-A reuse license has not yet been assigned. Until the authors add an explicit license, no permission for reuse beyond applicable statutory exceptions is granted.
+A separate software reuse license has not been assigned. Public access to the archive does not imply unrestricted software reuse.

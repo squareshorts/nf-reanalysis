@@ -1,9 +1,8 @@
 {
   "title": "SMR neurofeedback EEG reanalysis: reproducible aggregate analyses",
   "upload_type": "software",
-  "publication_date": "2026-11-19",
-  "version": "1.0.0",
-  "description": "Analysis code and aggregate-only results for the reanalysis of resting-state EEG changes following an occupational SMR neurofeedback protocol. Raw EEG, participant-level derived data, BrainAvatar workbooks, and participant crosswalks are excluded due to institutional and occupational confidentiality constraints.",
+  "version": "2.0.0",
+  "description": "Corrected 300-Hz C3 resting-state EEG reanalysis, including spectral and phase--amplitude coupling feature extraction, exact permutation inference, responder/PCA analyses, and aggregate-only reproducibility outputs. Raw EEG and participant-level study data are excluded under institutional confidentiality requirements.",
   "creators": [
     {
       "name": "Suzana Cescon de Souza"

@@ -1,5 +1,0 @@
-metric,minimum,median,maximum
-pc1_cosine,0.8681,0.9994,1.0
-pc2_cosine,0.7501,0.9951,0.9997
-pc1_variance_percent,49.8565,70.5472,81.4294
-pc2_variance_percent,14.3346,21.0615,28.2746

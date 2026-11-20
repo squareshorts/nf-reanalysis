@@ -1,3 +1,3 @@
-# Data directory
+# Restricted source data
 
-No participant-level or raw study data are distributed in this repository. Place an authorized local copy of `subject_level_eeg.csv` outside the repository and pass its path to the analysis script. Do not commit participant-level derived data, raw EEG, BrainAvatar workbooks, cognitive-test records, or participant crosswalks.
+The source EEG recordings and participant-level feature table are intentionally omitted. The public archive includes only source-validated aggregate statistics.

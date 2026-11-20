@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the associated manuscript and this archived release."
 title: "SMR neurofeedback EEG reanalysis"
-version: 1.0.0
-date-released: 2026-11-19
+version: 2.0.0
+date-released: 2026-11-20
 authors:
   - family-names: "de Souza"
     given-names: "Suzana Cescon"
